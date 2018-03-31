@@ -1,12 +1,13 @@
-React Boilerplate with Redux/React-Router and SASS & Express on the back!
+# JS Quiz built with React & Redux!
 
-Fork it!
+Javascript multiple choice quiz app! 
+The purpose of this was work more with Redux!
 
-On terminal: <br>
+### Local set up
 
-1: git clone <br>
-2: npm install <br>
-3: npm run react-dev <br>
-4: npm start <br>
-
-Open a new browser tab on localhost:3000 & start hacking! 
+```
+    git clone
+    cd <folder>
+    npm install
+    npm run react-dev
+```
