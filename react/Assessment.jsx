@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Answer from "./Answer";
 
 class Assessment extends Component {
   constructor(props) {
@@ -11,37 +12,48 @@ class Assessment extends Component {
     };
 
     this.onRightClick = this.onRightClick.bind(this);
-    this.onLeftClick = this.onRightClick.bind(this);
+    this.onLeftClick = this.onLeftClick.bind(this);
+    this.run = this.run.bind(this);
+  }
+
+  run(direction) {
+    if (direction === "right") {
+      if (this.state.index <= 4) {
+        this.state.index += 1;
+        this.state.testNum += 1;
+
+        let nextValue = this.state.index;
+        let questions = this.props.questions;
+        console.log("nextVA", nextValue);
+        console.log("qyestions", questions);
+        this.setState({
+          current: questions[nextValue]
+        });
+      }
+    } else if (direction === "left") {
+      if (this.state.index !== 0) {
+        this.state.index -= 1;
+        this.state.testNum -= 1;
+
+        let nextValue = this.state.index;
+        let questions = this.props.questions;
+
+        this.setState({
+          current: questions[nextValue]
+        });
+      }
+    }
   }
 
   onRightClick() {
-    console.log("clicking right");
-    if (this.state.index <= 5) {
-      this.state.index += 1;
-      this.state.testNum += 1;
-
-      let cur = this.state.index;
-      let next = this.props.questions;
-
-      this.setState({
-        current: next[cur]
-      });
-    }
+    this.run("right");
   }
 
   onLeftClick() {
-    if (this.state.idx !== 0) {
-      this.state.idx -= 1;
-      let cur = this.state.idx;
-      let next = this.props.data;
-      this.setState({
-        current: next[cur]
-      });
-    }
+    this.run("left");
   }
 
   render() {
-    console.log("state", this.state);
     let checkName;
     let checkNav;
 
@@ -51,22 +63,38 @@ class Assessment extends Component {
       checkName = "Anonymous";
     }
 
-    if (this.state.num === 1) {
-      checkNav = null;
+    if (this.state.testNum === 1) {
+      checkNav = <div />;
     } else {
-      checkNav = <div onClick={this.onLeftClick} />;
+      checkNav = (
+        <img
+          onClick={this.onLeftClick}
+          src="https://image.ibb.co/jyA5n7/prev.png"
+          alt="Back"
+        />
+      );
     }
-
+    console.log("score", this.props.currentScore);
     return (
       <div className="test-display">
         <h2>Welcome {checkName}!</h2>
-        {checkNav}
-        <p>Step {this.state.testNum} of 4</p>
         <div className="test-box">
-          <h4>{this.state.current.title}</h4>
-          <p>{this.state.current.description}</p>
-          <div onClick={this.onRightClick}>
-            next
+          <div className="container">
+            <div className="back-n-count">
+              {checkNav}
+              <p>Step {this.state.testNum} of 4</p>
+            </div>
+            <div className="test-details">
+              <h4>{this.state.current.title}</h4>
+              <p>{this.state.current.description}</p>
+            </div>
+            <div className="answers">
+              {this.state.current.choices.map((ele, i) => {
+                return (
+                  <Answer choice={ele} key={i} onClick={this.onRightClick} />
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
@@ -76,7 +104,8 @@ class Assessment extends Component {
 
 const mapStateToProps = state => ({
   questions: state.questions,
-  name: state.searchTerm
+  name: state.searchTerm,
+  currentScore: state.score
 });
 
 export default connect(mapStateToProps)(Assessment);
