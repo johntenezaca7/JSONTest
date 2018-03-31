@@ -1,30 +1,43 @@
 import React from "react";
 import { connect } from "react-redux";
-import { updateCurrentScore } from "./actionCreator";
+import { Link } from "react-router-dom";
+import { incrementScore } from "./actionCreator";
 
 const Answer = props => {
-  const onClick = () => {
+  const updateScore = () => {
     let score = props.choice[1];
     props.handleScore(score);
   };
 
   const fireAll = () => {
-    onClick();
+    updateScore();
     props.onClick();
   };
+  let isDone;
 
-  return (
-    <div className="answer-box" onClick={fireAll}>
-      <p>{props.choice[0]}</p>
-    </div>
-  );
+  if (props.current.done) {
+    isDone = (
+      <div className="answer-box" onClick={updateScore}>
+        <Link to="/done">
+          <p>{props.choice[0]}</p>
+        </Link>
+      </div>
+    );
+  } else {
+    isDone = (
+      <div className="answer-box" onClick={fireAll}>
+        <p>{props.choice[0]}</p>
+      </div>
+    );
+  }
+
+  return isDone;
 };
 
-const mapDispacthtoProps = (dispatch: Function) => ({
+const mapDispatchtoProps = (dispatch: Function) => ({
   handleScore(score) {
-    console.log("Updateing score");
-    dispatch(updateCurrentScore(score));
+    dispatch(incrementScore(score));
   }
 });
 
-export default connect(null, mapDispacthtoProps)(Answer);
+export default connect(null, mapDispatchtoProps)(Answer);

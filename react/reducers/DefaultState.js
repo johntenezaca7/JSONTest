@@ -10,7 +10,8 @@ export const DEFAULT_STATE = {
         ["<javascript>", 1],
         ["<scripting>", 1],
         ["<js>", 1]
-      ]
+      ],
+      done: false
     },
     {
       title: "2. What is the correct way to write a JavaScript array?",
@@ -20,7 +21,8 @@ export const DEFAULT_STATE = {
         ["var colors = 1 = ('red'), 2 = ('green'), 3 = ('blue')", 1],
         ["var colors = 'red', 'green', 'blue'", 1],
         ["var colors = ['red', 'green', 'blue']", 5]
-      ]
+      ],
+      done: false
     },
     {
       title: "3. How do you find the number with the highest value of x and y?",
@@ -30,7 +32,8 @@ export const DEFAULT_STATE = {
         ["ceil(x, y)", 1],
         ["top(x, y)", 1],
         ["Math.max(x, y)", 5]
-      ]
+      ],
+      done: false
     },
     {
       title: "4. What is React?",

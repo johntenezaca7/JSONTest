@@ -25,10 +25,10 @@ const Landing = props => (
 
 const mapStateToProps = state => ({ searchTerm: state.searchTerm });
 
-const mapDispacthtoProps = (dispatch: Function) => ({
+const mapDispatchtoProps = dispatch => ({
   handleSearchTermChange(event) {
     dispatch(setSearchTerm(event.target.value));
   }
 });
 
-export default connect(mapStateToProps, mapDispacthtoProps)(Landing);
+export default connect(mapStateToProps, mapDispatchtoProps)(Landing);

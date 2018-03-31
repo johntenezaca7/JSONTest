@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { decrementScore } from "./actionCreator";
 import Answer from "./Answer";
 
 class Assessment extends Component {
@@ -8,7 +9,8 @@ class Assessment extends Component {
     this.state = {
       index: 0,
       testNum: 1,
-      current: this.props.questions[0]
+      current: this.props.questions[0],
+      savedScore: ""
     };
 
     this.onRightClick = this.onRightClick.bind(this);
@@ -17,17 +19,22 @@ class Assessment extends Component {
   }
 
   run(direction) {
+    let nextValue, questions;
+
     if (direction === "right") {
       if (this.state.index <= 4) {
         this.state.index += 1;
         this.state.testNum += 1;
 
-        let nextValue = this.state.index;
-        let questions = this.props.questions;
-        console.log("nextVA", nextValue);
-        console.log("qyestions", questions);
-        this.setState({
-          current: questions[nextValue]
+        nextValue = this.state.index;
+        questions = this.props.questions;
+
+        this.setState((prev, next) => {
+          let savedVal = prev.savedScore ? prev.savedScore : next.currentScore;
+          return {
+            current: questions[nextValue],
+            savedScore: savedVal
+          };
         });
       }
     } else if (direction === "left") {
@@ -35,11 +42,14 @@ class Assessment extends Component {
         this.state.index -= 1;
         this.state.testNum -= 1;
 
-        let nextValue = this.state.index;
-        let questions = this.props.questions;
+        nextValue = this.state.index;
+        questions = this.props.questions;
 
-        this.setState({
-          current: questions[nextValue]
+        this.setState((prev, next) => {
+          return {
+            current: questions[nextValue],
+            savedScore: prev.savedScore
+          };
         });
       }
     }
@@ -51,6 +61,8 @@ class Assessment extends Component {
 
   onLeftClick() {
     this.run("left");
+    let score = this.state.savedScore;
+    this.props.decScore(score);
   }
 
   render() {
@@ -74,7 +86,6 @@ class Assessment extends Component {
         />
       );
     }
-    console.log("score", this.props.currentScore);
     return (
       <div className="test-display">
         <h2>Welcome {checkName}!</h2>
@@ -91,7 +102,12 @@ class Assessment extends Component {
             <div className="answers">
               {this.state.current.choices.map((ele, i) => {
                 return (
-                  <Answer choice={ele} key={i} onClick={this.onRightClick} />
+                  <Answer
+                    choice={ele}
+                    key={i}
+                    onClick={this.onRightClick}
+                    current={this.state.current}
+                  />
                 );
               })}
             </div>
@@ -108,4 +124,10 @@ const mapStateToProps = state => ({
   currentScore: state.score
 });
 
-export default connect(mapStateToProps)(Assessment);
+const mapDispatchtoProps = dispatch => ({
+  decScore(score) {
+    dispatch(decrementScore(score));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchtoProps)(Assessment);

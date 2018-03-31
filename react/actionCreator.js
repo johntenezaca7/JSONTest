@@ -1,9 +1,18 @@
-import { SET_SEARCH_TERM, UPDATE_SCORE } from "./actions";
+import { SET_SEARCH_TERM, INCREMENT, DECREMENT, RESTART } from "./actions";
 
 export function setSearchTerm(searchTerm) {
   return { type: SET_SEARCH_TERM, payload: searchTerm };
 }
 
-export function updateCurrentScore(score) {
-  return { type: UPDATE_SCORE, payload: score };
+export function incrementScore(score) {
+  return { type: INCREMENT, payload: score };
+}
+
+export function decrementScore(score) {
+  console.log("down");
+  return { type: DECREMENT, payload: score };
+}
+
+export function restart() {
+  return { type: RESTART, payload: 0 };
 }
