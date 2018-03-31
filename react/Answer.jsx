@@ -30,7 +30,6 @@ const Answer = props => {
       </div>
     );
   }
-
   return isDone;
 };
 
