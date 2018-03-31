@@ -5,7 +5,7 @@ import App from "./App";
 
 const renderApp = () => {
   render(
-    <BrowserRouter key={Math.random()}>
+    <BrowserRouter>
       <App />
     </BrowserRouter>,
     document.getElementById("app")

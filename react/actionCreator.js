@@ -9,7 +9,6 @@ export function incrementScore(score) {
 }
 
 export function decrementScore(score) {
-  console.log("down");
   return { type: DECREMENT, payload: score };
 }
 

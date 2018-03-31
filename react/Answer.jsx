@@ -34,7 +34,7 @@ const Answer = props => {
   return isDone;
 };
 
-const mapDispatchtoProps = (dispatch: Function) => ({
+const mapDispatchtoProps = dispatch => ({
   handleScore(score) {
     dispatch(incrementScore(score));
   }
