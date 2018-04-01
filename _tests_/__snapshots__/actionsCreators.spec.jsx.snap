@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`decrementScore 1`] = `
+Object {
+  "payload": 5,
+  "type": "SET_SEARCH_TERM",
+}
+`;
+
+exports[`incrementScore 1`] = `
+Object {
+  "payload": 5,
+  "type": "SET_SEARCH_TERM",
+}
+`;
+
+exports[`restart 1`] = `
+Object {
+  "payload": undefined,
+  "type": "SET_SEARCH_TERM",
+}
+`;
+
+exports[`setSearchTerm 1`] = `
+Object {
+  "payload": "John",
+  "type": "SET_SEARCH_TERM",
+}
+`;
