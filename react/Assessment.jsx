@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { decrementScore } from "./actionCreator";
 import Answer from "./Answer";
@@ -61,21 +62,23 @@ class Assessment extends Component {
 
   onLeftClick() {
     this.run("left");
-    let score = this.state.savedScore;
-    this.props.decScore(score);
+    this.props.decScore(this.state.savedScore);
   }
 
   render() {
+    const { name } = this.props;
+    const { testNum, current } = this.state;
+
     let checkName;
     let checkNav;
 
-    if (this.props.name) {
-      checkName = this.props.name;
+    if (name) {
+      checkName = name;
     } else {
       checkName = "Anonymous";
     }
 
-    if (this.state.testNum === 1) {
+    if (testNum === 1) {
       checkNav = <div />;
     } else {
       checkNav = (
@@ -93,14 +96,14 @@ class Assessment extends Component {
           <div className="container">
             <div className="back-n-count">
               {checkNav}
-              <p>Step {this.state.testNum} of 4</p>
+              <p>Step {testNum} of 4</p>
             </div>
             <div className="test-details">
-              <h4>{this.state.current.title}</h4>
-              <p>{this.state.current.description}</p>
+              <h4>{current.title}</h4>
+              <p>{current.description}</p>
             </div>
             <div className="answers">
-              {this.state.current.choices.map((ele, i) => {
+              {current.choices.map((ele, i) => {
                 return (
                   <Answer
                     choice={ele}
@@ -129,5 +132,12 @@ const mapDispatchtoProps = dispatch => ({
     dispatch(decrementScore(score));
   }
 });
+
+Assessment.propTypes = {
+  currentScore: PropTypes.number,
+  decScore: PropTypes.func,
+  questions: PropTypes.array,
+  name: PropTypes.string
+};
 
 export default connect(mapStateToProps, mapDispatchtoProps)(Assessment);

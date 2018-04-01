@@ -1,32 +1,35 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { incrementScore } from "./actionCreator";
 
 const Answer = props => {
+  const { choice, incScore, onClick, current } = props;
+
   const updateScore = () => {
-    let score = props.choice[1];
-    props.handleScore(score);
+    let score = choice[1];
+    incScore(score);
   };
 
   const fireAll = () => {
     updateScore();
-    props.onClick();
+    onClick();
   };
   let isDone;
 
-  if (props.current.done) {
+  if (current.done) {
     isDone = (
       <div className="answer-box" onClick={updateScore}>
         <Link to="/done">
-          <p>{props.choice[0]}</p>
+          <p>{choice[0]}</p>
         </Link>
       </div>
     );
   } else {
     isDone = (
       <div className="answer-box" onClick={fireAll}>
-        <p>{props.choice[0]}</p>
+        <p>{choice[0]}</p>
       </div>
     );
   }
@@ -34,9 +37,16 @@ const Answer = props => {
 };
 
 const mapDispatchtoProps = dispatch => ({
-  handleScore(score) {
+  incScore(score) {
     dispatch(incrementScore(score));
   }
 });
+
+Answer.propTypes = {
+  incScore: PropTypes.func,
+  current: PropTypes.object,
+  choice: PropTypes.array,
+  onClick: PropTypes.func
+};
 
 export default connect(null, mapDispatchtoProps)(Answer);

@@ -9,7 +9,7 @@ import Done from "./Done";
 
 const App = () => (
   <Provider store={store}>
-    <div className="app">
+    <div>
       <Route exact path="/" component={props => <Landing />} />
       <Route exact path="/assessment" component={props => <Assessment />} />
       <Route exact path="/done" component={props => <Done />} />

@@ -1,27 +1,31 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { setSearchTerm } from "./actionCreator";
 
-const Landing = props => (
-  <div className="landing">
-    <div className="inside-landing">
-      <h2>Please enter your name!</h2>
-      <input
-        onChange={props.handleSearchTermChange}
-        value={props.searchTerm}
-        type="text"
-        placeholder="Search"
-      />
-      <br />
-      <Link to="/assessment">
-        <button className="landing-btn">
-          Enter
-        </button>
-      </Link>
+const Landing = props => {
+  const { handleSearchTermChange, searchTerm } = props;
+  return (
+    <div className="landing">
+      <div className="inside-landing">
+        <h2>Please enter your name!</h2>
+        <input
+          onChange={handleSearchTermChange}
+          value={searchTerm}
+          type="text"
+          placeholder="Search"
+        />
+        <br />
+        <Link to="/assessment">
+          <button className="landing-btn">
+            Enter
+          </button>
+        </Link>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const mapStateToProps = state => ({ searchTerm: state.searchTerm });
 
@@ -30,5 +34,10 @@ const mapDispatchtoProps = dispatch => ({
     dispatch(setSearchTerm(event.target.value));
   }
 });
+
+Landing.propTypes = {
+  handleSearchTermChange: PropTypes.func,
+  searchTerm: PropTypes.string
+};
 
 export default connect(mapStateToProps, mapDispatchtoProps)(Landing);
