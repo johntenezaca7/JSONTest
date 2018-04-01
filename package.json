@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node server.js",
     "start": "nodemon server.js",
-    "react-dev": "webpack-dev-server"
+    "react-dev": "webpack-dev-server",
+    "test": "jest"
   },
   "repository": {
     "type": "git",

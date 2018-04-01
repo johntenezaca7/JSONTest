@@ -14,12 +14,12 @@ class Assessment extends Component {
       savedScore: ""
     };
 
-    this.onRightClick = this.onRightClick.bind(this);
-    this.onLeftClick = this.onLeftClick.bind(this);
-    this.run = this.run.bind(this);
+    this._onRightClick = this._onRightClick.bind(this);
+    this._onLeftClick = this._onLeftClick.bind(this);
+    this._run = this._run.bind(this);
   }
 
-  run(direction) {
+  _run(direction) {
     let nextValue, questions;
 
     if (direction === "right") {
@@ -56,18 +56,19 @@ class Assessment extends Component {
     }
   }
 
-  onRightClick() {
-    this.run("right");
+  _onRightClick() {
+    this._run("right");
   }
 
-  onLeftClick() {
-    this.run("left");
+  _onLeftClick() {
+    this._run("left");
     this.props.decScore(this.state.savedScore);
   }
 
   render() {
-    const { name } = this.props;
+    const { _onLeftClick, _onRightClick } = this;
     const { testNum, current } = this.state;
+    const { name } = this.props;
 
     let checkName;
     let checkNav;
@@ -83,7 +84,7 @@ class Assessment extends Component {
     } else {
       checkNav = (
         <img
-          onClick={this.onLeftClick}
+          onClick={_onLeftClick}
           src="https://image.ibb.co/jyA5n7/prev.png"
           alt="Back"
         />
@@ -108,8 +109,8 @@ class Assessment extends Component {
                   <Answer
                     choice={ele}
                     key={i}
-                    onClick={this.onRightClick}
-                    current={this.state.current}
+                    onClick={_onRightClick}
+                    current={current}
                   />
                 );
               })}
