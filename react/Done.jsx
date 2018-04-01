@@ -18,6 +18,11 @@ const Done = props => {
   );
 };
 
+Done.propTypes = {
+  score: PropTypes.number,
+  takeTestAgain: PropTypes.func
+};
+
 const mapStateToProps = state => ({ score: state.score });
 
 const mapDispatchtoProps = dispatch => ({
@@ -26,9 +31,6 @@ const mapDispatchtoProps = dispatch => ({
   }
 });
 
-Done.propTypes = {
-  score: PropTypes.number,
-  takeTestAgain: PropTypes.func
-};
+export const Unwrapped = Done;
 
 export default connect(mapStateToProps, mapDispatchtoProps)(Done);

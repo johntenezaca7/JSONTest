@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Done Component renders correctly 1`] = `
+<div
+  className="done"
+>
+  <h1>
+    Your score is 
+    20
+     out of 20.
+  </h1>
+  <button
+    onClick={[Function]}
+  >
+    <Link
+      replace={false}
+      to="/assessment"
+    >
+      Take it again!
+    </Link>
+  </button>
+</div>
+`;

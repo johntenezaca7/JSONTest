@@ -27,6 +27,11 @@ const Landing = props => {
   );
 };
 
+Landing.propTypes = {
+  handleSearchTermChange: PropTypes.func,
+  searchTerm: PropTypes.string
+};
+
 const mapStateToProps = state => ({ searchTerm: state.searchTerm });
 
 const mapDispatchtoProps = dispatch => ({
@@ -35,9 +40,6 @@ const mapDispatchtoProps = dispatch => ({
   }
 });
 
-Landing.propTypes = {
-  handleSearchTermChange: PropTypes.func,
-  searchTerm: PropTypes.string
-};
+export const Unwrapped = Landing;
 
 export default connect(mapStateToProps, mapDispatchtoProps)(Landing);

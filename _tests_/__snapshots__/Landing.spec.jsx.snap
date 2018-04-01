@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Landing Component renders correctly 1`] = `
+<div
+  className="landing"
+>
+  <div
+    className="inside-landing"
+  >
+    <h2>
+      Please enter your name!
+    </h2>
+    <input
+      onChange={[Function]}
+      placeholder="Search"
+      type="text"
+      value="test"
+    />
+    <br />
+    <Link
+      replace={false}
+      to="/assessment"
+    >
+      <button
+        className="landing-btn"
+      >
+        Enter
+      </button>
+    </Link>
+  </div>
+</div>
+`;

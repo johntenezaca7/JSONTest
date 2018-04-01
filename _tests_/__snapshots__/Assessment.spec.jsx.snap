@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Assessment Component renders correctly with one question 1`] = `
+<div
+  className="test-display"
+>
+  <h2>
+    Welcome 
+    test
+    !
+  </h2>
+  <div
+    className="test-box"
+  >
+    <div
+      className="container"
+    >
+      <div
+        className="back-n-count"
+      >
+        <div />
+        <p>
+          Step 
+          1
+           of 4
+        </p>
+      </div>
+      <div
+        className="test-details"
+      >
+        <h4>
+          1. Inside which HTML element do we put the JavaScript?
+        </h4>
+        <p />
+      </div>
+      <div
+        className="answers"
+      >
+        <Connect(Answer)
+          choice={
+            Array [
+              "<script>",
+              5,
+            ]
+          }
+          current={
+            Object {
+              "choices": Array [
+                Array [
+                  "<script>",
+                  5,
+                ],
+                Array [
+                  "<javascript>",
+                  1,
+                ],
+                Array [
+                  "<scripting>",
+                  1,
+                ],
+                Array [
+                  "<js>",
+                  1,
+                ],
+              ],
+              "description": "",
+              "done": false,
+              "title": "1. Inside which HTML element do we put the JavaScript?",
+            }
+          }
+          onClick={[Function]}
+        />
+        <Connect(Answer)
+          choice={
+            Array [
+              "<javascript>",
+              1,
+            ]
+          }
+          current={
+            Object {
+              "choices": Array [
+                Array [
+                  "<script>",
+                  5,
+                ],
+                Array [
+                  "<javascript>",
+                  1,
+                ],
+                Array [
+                  "<scripting>",
+                  1,
+                ],
+                Array [
+                  "<js>",
+                  1,
+                ],
+              ],
+              "description": "",
+              "done": false,
+              "title": "1. Inside which HTML element do we put the JavaScript?",
+            }
+          }
+          onClick={[Function]}
+        />
+        <Connect(Answer)
+          choice={
+            Array [
+              "<scripting>",
+              1,
+            ]
+          }
+          current={
+            Object {
+              "choices": Array [
+                Array [
+                  "<script>",
+                  5,
+                ],
+                Array [
+                  "<javascript>",
+                  1,
+                ],
+                Array [
+                  "<scripting>",
+                  1,
+                ],
+                Array [
+                  "<js>",
+                  1,
+                ],
+              ],
+              "description": "",
+              "done": false,
+              "title": "1. Inside which HTML element do we put the JavaScript?",
+            }
+          }
+          onClick={[Function]}
+        />
+        <Connect(Answer)
+          choice={
+            Array [
+              "<js>",
+              1,
+            ]
+          }
+          current={
+            Object {
+              "choices": Array [
+                Array [
+                  "<script>",
+                  5,
+                ],
+                Array [
+                  "<javascript>",
+                  1,
+                ],
+                Array [
+                  "<scripting>",
+                  1,
+                ],
+                Array [
+                  "<js>",
+                  1,
+                ],
+              ],
+              "description": "",
+              "done": false,
+              "title": "1. Inside which HTML element do we put the JavaScript?",
+            }
+          }
+          onClick={[Function]}
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

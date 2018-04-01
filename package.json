@@ -7,7 +7,10 @@
     "dev": "node server.js",
     "start": "nodemon server.js",
     "react-dev": "webpack-dev-server",
-    "test": "jest"
+    "test": "NODE_ENV=test jest"
+  },
+  "jest": {
+    "snapshotSerializers": ["jest-serializer-enzyme"]
   },
   "repository": {
     "type": "git",
@@ -21,6 +24,7 @@
   "homepage": "https://github.com/johntenezaca7/react-starter#readme",
   "dependencies": {
     "axios": "0.16.1",
+    "babel-jest": "^22.4.3",
     "babel-plugin-dynamic-import-webpack": "1.0.1",
     "babel-plugin-transform-decorators-legacy": "1.3.4",
     "babel-register": "6.24.1",
@@ -47,28 +51,28 @@
     "webpack-hot-middleware": "2.18.0"
   },
   "devDependencies": {
-    "babel-core": "6.24.1",
+    "babel-core": "^6.24.1",
     "babel-eslint": "7.2.3",
-    "css-loader": "^0.28.9",
     "babel-loader": "7.0.0",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.20.1",
     "babel-plugin-dynamic-import-node": "1.0.2",
     "babel-plugin-syntax-dynamic-import": "6.18.0",
     "babel-plugin-transform-class-properties": "6.24.1",
-    "babel-plugin-transform-es2015-modules-commonjs": "6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
     "babel-preset-env": "1.5.1",
     "babel-preset-react": "6.24.1",
+    "css-loader": "^0.28.9",
     "enzyme": "2.8.2",
     "eslint": "3.19.0",
     "flow-bin": "0.47.0",
-    "jest": "20.0.4",
+    "jest": "^22.4.3",
     "jest-serializer-enzyme": "1.0.0",
     "moxios": "0.4.0",
     "nodemon": "1.11.0",
     "prettier": "1.3.1",
     "react-hot-loader": "3.0.0-beta.6",
     "react-test-renderer": "15.5.4",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.1",
     "webpack-dev-server": "2.4.5"
   }
 }

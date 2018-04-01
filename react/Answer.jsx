@@ -36,17 +36,19 @@ const Answer = props => {
   return isDone;
 };
 
-const mapDispatchtoProps = dispatch => ({
-  incScore(score) {
-    dispatch(incrementScore(score));
-  }
-});
-
 Answer.propTypes = {
   incScore: PropTypes.func,
   current: PropTypes.object,
   choice: PropTypes.array,
   onClick: PropTypes.func
 };
+
+const mapDispatchtoProps = dispatch => ({
+  incScore(score) {
+    dispatch(incrementScore(score));
+  }
+});
+
+export const Unwrapped = Answer;
 
 export default connect(null, mapDispatchtoProps)(Answer);

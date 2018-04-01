@@ -122,6 +122,13 @@ class Assessment extends Component {
   }
 }
 
+Assessment.propTypes = {
+  currentScore: PropTypes.number,
+  decScore: PropTypes.func,
+  questions: PropTypes.array,
+  name: PropTypes.string
+};
+
 const mapStateToProps = state => ({
   questions: state.questions,
   name: state.searchTerm,
@@ -134,11 +141,6 @@ const mapDispatchtoProps = dispatch => ({
   }
 });
 
-Assessment.propTypes = {
-  currentScore: PropTypes.number,
-  decScore: PropTypes.func,
-  questions: PropTypes.array,
-  name: PropTypes.string
-};
+export const Unwrapped = Assessment;
 
 export default connect(mapStateToProps, mapDispatchtoProps)(Assessment);
