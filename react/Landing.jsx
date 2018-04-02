@@ -14,7 +14,7 @@ const Landing = props => {
           onChange={handleSearchTermChange}
           value={searchTerm}
           type="text"
-          placeholder="Search"
+          placeholder="Enter your name here"
         />
         <br />
         <Link to="/assessment">
