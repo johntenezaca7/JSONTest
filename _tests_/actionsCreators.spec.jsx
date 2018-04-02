@@ -1,5 +1,5 @@
 import {
-  setSearchTerm,
+  nameInput,
   incrementScore,
   decrementScore,
   restart
@@ -7,18 +7,18 @@ import {
 
 import jest from "jest";
 
-test("setSearchTerm", () => {
-  expect(setSearchTerm("John")).toMatchSnapshot();
+test("nameInput", () => {
+  expect(nameInput("John")).toMatchSnapshot();
 });
 
 test("incrementScore", () => {
-  expect(setSearchTerm(5)).toMatchSnapshot();
+  expect(incrementScore(5)).toMatchSnapshot();
 });
 
 test("decrementScore", () => {
-  expect(setSearchTerm(5)).toMatchSnapshot();
+  expect(decrementScore(5)).toMatchSnapshot();
 });
 
 test("restart", () => {
-  expect(setSearchTerm()).toMatchSnapshot();
+  expect(restart()).toMatchSnapshot();
 });

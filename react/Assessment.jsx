@@ -131,7 +131,7 @@ Assessment.propTypes = {
 
 const mapStateToProps = state => ({
   questions: state.questions,
-  name: state.searchTerm,
+  name: state.name,
   currentScore: state.score
 });
 

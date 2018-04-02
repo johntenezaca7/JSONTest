@@ -2,17 +2,17 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { setSearchTerm } from "./actionCreator";
+import { nameInput } from "./actionCreator";
 
 const Landing = props => {
-  const { handleSearchTermChange, searchTerm } = props;
+  const { handleNameInput, searchTerm } = props;
   return (
     <div className="landing">
       <div className="inside-landing">
         <h2>Please enter your name!</h2>
         <input
-          onChange={handleSearchTermChange}
-          value={searchTerm}
+          onChange={handleNameInput}
+          value={name}
           type="text"
           placeholder="Enter your name here"
         />
@@ -28,15 +28,15 @@ const Landing = props => {
 };
 
 Landing.propTypes = {
-  handleSearchTermChange: PropTypes.func,
-  searchTerm: PropTypes.string
+  handleNameInput: PropTypes.func,
+  name: PropTypes.string
 };
 
-const mapStateToProps = state => ({ searchTerm: state.searchTerm });
+const mapStateToProps = state => ({ name: state.name });
 
 const mapDispatchtoProps = dispatch => ({
-  handleSearchTermChange(event) {
-    dispatch(setSearchTerm(event.target.value));
+  handleNameInput(event) {
+    dispatch(nameInput(event.target.value));
   }
 });
 

@@ -1,8 +1,8 @@
-import { SET_SEARCH_TERM, INCREMENT, DECREMENT, RESTART } from "../actions";
+import { NAME_INPUT, INCREMENT, DECREMENT, RESTART } from "../actions";
 import { DEFAULT_STATE } from "./DefaultState";
 
-const setSearchTerm = (state, action) => {
-  return Object.assign({}, state, { searchTerm: action.payload });
+const setName = (state, action) => {
+  return Object.assign({}, state, { name: action.payload });
 };
 
 const incScore = (state, action) => {
@@ -19,8 +19,8 @@ const restart = (state, action) => {
 
 const rootReducer = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
-    case SET_SEARCH_TERM:
-      return setSearchTerm(state, action);
+    case NAME_INPUT:
+      return setName(state, action);
     case INCREMENT:
       return incScore(state, action);
     case DECREMENT:

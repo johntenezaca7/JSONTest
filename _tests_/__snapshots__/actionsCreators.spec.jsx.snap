@@ -3,27 +3,27 @@
 exports[`decrementScore 1`] = `
 Object {
   "payload": 5,
-  "type": "SET_SEARCH_TERM",
+  "type": "DECREMENT",
 }
 `;
 
 exports[`incrementScore 1`] = `
 Object {
   "payload": 5,
-  "type": "SET_SEARCH_TERM",
+  "type": "INCREMENT",
+}
+`;
+
+exports[`nameInput 1`] = `
+Object {
+  "payload": "John",
+  "type": "NAME_INPUT",
 }
 `;
 
 exports[`restart 1`] = `
 Object {
-  "payload": undefined,
-  "type": "SET_SEARCH_TERM",
-}
-`;
-
-exports[`setSearchTerm 1`] = `
-Object {
-  "payload": "John",
-  "type": "SET_SEARCH_TERM",
+  "payload": 0,
+  "type": "RESTART",
 }
 `;

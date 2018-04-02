@@ -1,5 +1,5 @@
 export const DEFAULT_STATE = {
-  searchTerm: "",
+  name: "",
   score: 0,
   questions: [
     {

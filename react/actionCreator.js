@@ -1,7 +1,7 @@
-import { SET_SEARCH_TERM, INCREMENT, DECREMENT, RESTART } from "./actions";
+import { NAME_INPUT, INCREMENT, DECREMENT, RESTART } from "./actions";
 
-export function setSearchTerm(searchTerm) {
-  return { type: SET_SEARCH_TERM, payload: searchTerm };
+export function nameInput(name) {
+  return { type: NAME_INPUT, payload: name };
 }
 
 export function incrementScore(score) {

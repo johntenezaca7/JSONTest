@@ -12,9 +12,9 @@ exports[`Landing Component renders correctly 1`] = `
     </h2>
     <input
       onChange={[Function]}
-      placeholder="Search"
+      placeholder="Enter your name here"
       type="text"
-      value="test"
+      value="nodejs"
     />
     <br />
     <Link
