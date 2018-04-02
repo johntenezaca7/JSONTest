@@ -14,7 +14,6 @@ exports[`Landing Component renders correctly 1`] = `
       onChange={[Function]}
       placeholder="Enter your name here"
       type="text"
-      value="nodejs"
     />
     <br />
     <Link

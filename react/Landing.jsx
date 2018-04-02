@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { nameInput } from "./actionCreator";
 
 const Landing = props => {
-  const { handleNameInput, searchTerm } = props;
+  const { handleNameInput, name } = props;
   return (
     <div className="landing">
       <div className="inside-landing">
