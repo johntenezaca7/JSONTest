@@ -1,4 +1,3 @@
-import { combineReducers } from "redux";
 import { SET_SEARCH_TERM, INCREMENT, DECREMENT, RESTART } from "../actions";
 import { DEFAULT_STATE } from "./DefaultState";
 
