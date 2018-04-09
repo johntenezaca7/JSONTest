@@ -7,21 +7,32 @@ import { nameInput } from "./actionCreator";
 const Landing = props => {
   const { handleNameInput, name } = props;
   return (
-    <div className="landing">
-      <div className="inside-landing">
-        <h2>Please enter your name!</h2>
-        <input
-          onChange={handleNameInput}
-          value={name}
-          type="text"
-          placeholder="Enter your name here"
+    <div className="landing-video">
+      <div className="fullscreen-video">
+        <video
+          src="https://www.videvo.net/videvo_files/converted/2014_05/preview/Typing_on_Keyboard_2821_Videvo.mov46902.webm"
+          autoPlay="true"
+          loop="true"
         />
-        <br />
-        <Link to="/assessment">
-          <button className="landing-btn">
-            Enter
-          </button>
-        </Link>
+      </div>
+      <div className="video-overlay" />
+      <div className="landing">
+        <h2>HubJS</h2>
+        <div className="inside-landing">
+          <div className="GetName">Please enter your name!</div>
+          <input
+            onChange={handleNameInput}
+            value={name}
+            type="text"
+            placeholder="Name"
+          />
+          <br />
+          <Link to="/assessment">
+            <button className="landing-btn">
+              Enter
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
