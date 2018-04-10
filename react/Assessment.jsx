@@ -31,7 +31,7 @@ class Assessment extends Component {
         questions = this.props.questions;
 
         this.setState((prev, next) => {
-          let savedVal = prev.savedScore ? prev.savedScore : next.currentScore;
+          let savedVal = prev.savedScore ? prev.savedScore : next.score;
           return {
             current: questions[nextValue],
             savedScore: savedVal
@@ -69,7 +69,7 @@ class Assessment extends Component {
     const { _onLeftClick, _onRightClick } = this;
     const { testNum, current } = this.state;
     const { name } = this.props;
-
+    console.log("name!!!", this.props);
     let checkName;
     let checkNav;
 
@@ -123,17 +123,20 @@ class Assessment extends Component {
 }
 
 Assessment.propTypes = {
-  currentScore: PropTypes.number,
+  score: PropTypes.number,
   decScore: PropTypes.func,
   questions: PropTypes.array,
   name: PropTypes.string
 };
 
-const mapStateToProps = state => ({
-  questions: state.questions,
-  name: state.name,
-  currentScore: state.score
-});
+const mapStateToProps = state => {
+  console.log("State from ass", state);
+  return {
+    questions: state.questions,
+    name: state.nameReducer.name,
+    score: state.scoreReducer.score
+  };
+};
 
 const mapDispatchtoProps = dispatch => ({
   decScore(score) {

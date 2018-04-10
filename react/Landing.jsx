@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { nameInput } from "./actionCreator";
 
 const Landing = props => {
+  console.log("props in landing", props.name);
   const { handleNameInput, name } = props;
   return (
     <div className="landing-video">
@@ -43,7 +44,9 @@ Landing.propTypes = {
   name: PropTypes.string
 };
 
-const mapStateToProps = state => ({ name: state.name });
+const mapStateToProps = state => {
+  return { name: state.nameReducer.name };
+};
 
 const mapDispatchtoProps = dispatch => ({
   handleNameInput(event) {

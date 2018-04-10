@@ -23,7 +23,7 @@ Done.propTypes = {
   takeTestAgain: PropTypes.func
 };
 
-const mapStateToProps = state => ({ score: state.score });
+const mapStateToProps = state => ({ score: state.scoreReducer.score });
 
 const mapDispatchtoProps = dispatch => ({
   takeTestAgain() {
